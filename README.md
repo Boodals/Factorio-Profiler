@@ -3,12 +3,17 @@
 A profiling tool for Factorio, by Boodals.
 
 Usage:
-	Command: `/startProfiler excludeCalledMs`
-	Script: `Profiler.Start(excludeCalledMs)`
+
+`/startProfiler excludeCalledMs` (Command)
+
+`Profiler.Start(excludeCalledMs)` (Script)
+
 Starts the profiler. Any function called between the profiler starting and the profiler stopping will be recorded. If `excludeCalledMs` is given (not empty in the command version, or `true` in the script version), it will exclude the time it takes for subfunctions to be called. For example, if function A calls function B, and `excludeCalledMs` is true, the log will only show the time function A uses directly, not the time function B uses.
 
-	Command: `/stopProfiler averageMs`
-	Script: `Profiler.Stop(averageMs, message)`
+`/stopProfiler averageMs` (Command)
+
+`Profiler.Stop(averageMs, message)` (Script)
+
 Stops the profiler. After stopping, it will automatically dump the stored data into the console. If `averageMs` is given (not empty in the command version, or `true` in the script version), it will print the average time each function call takes as opposed to the total time. For example, if function A is called 10 times, each taking 0.5ms, the average time will be 0.5ms, whereas the total time will be 5ms.
 
 
