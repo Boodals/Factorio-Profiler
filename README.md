@@ -8,7 +8,7 @@ Usage:
 
 `Profiler.Start(excludeCalledMs)` (Script)
 
-Starts the profiler. Any function called between the profiler starting and the profiler stopping will be recorded. If `excludeCalledMs` is given (not empty in the command version, or `true` in the script version), it will exclude the time it takes for subfunctions to be called. For example, if function A calls function B, and `excludeCalledMs` is true, the log will only show the time function A uses directly, not the time function B uses.
+Starts the profiler. Any function called between the profiler starting and the profiler stopping will be recorded. If `excludeCalledMs` is given (not empty in the command version, or `true` in the script version), it will exclude the time it takes for subfunctions to be called. For example, if function A calls function B, and let's say A takes 2ms, and B takes 5ms. If `excludeCalledMs` is true, the log will only show the time each function uses directly (2ms and 5ms). If `excludeCalledMs` is false, it will show the total time (7ms and 5ms).
 
 `/stopProfiler averageMs` (Command)
 
