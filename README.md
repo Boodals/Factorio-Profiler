@@ -1,4 +1,4 @@
-# Factorio-Profiler
+# Factorio Profiler
 
 A profiling tool for Factorio, by Boodals.
 
@@ -16,6 +16,8 @@ Starts the profiler. Any function called between the profiler starting and the p
 
 Stops the profiler. After stopping, it will automatically dump the stored data into the console. If `averageMs` is given (not empty in the command version, or `true` in the script version), it will print the average time each function call takes as opposed to the total time. For example, if function A is called 10 times, each taking 0.5ms, the average time will be 0.5ms, whereas the total time will be 5ms.
 
+
+Sample output: https://i.gyazo.com/81533760bc6499fb69b71d51bd3ebe0b.png
 
 It is intentionally desync unsafe. Do not use it in multiplayer.
 
