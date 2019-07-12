@@ -183,6 +183,7 @@ function Profiler.Stop(averageMs, message)
 		text = { "", "Reason: " .. message .. "\n" }
 	end
 	log(text)
+	Profiler.CallTree = nil
 	Profiler.IsRunning = false
 end
 
