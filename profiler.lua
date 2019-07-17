@@ -48,13 +48,15 @@ function Profiler.Start(excludeCalledMs)
 		return
 	end
 
+	local create_profiler = game.create_profiler
+
 	Profiler.IsRunning = true
 
 	Profiler.CallTree =
 	{
 		name = "root",
 		calls = 0,
-		profiler = game.create_profiler(),
+		profiler = create_profiler(),
 		next = { },
 	}
 
@@ -94,7 +96,7 @@ function Profiler.Start(excludeCalledMs)
 				{
 					name = name,
 					calls = 1,
-					profiler = game.create_profiler(),
+					profiler = create_profiler(),
 				}
 				prevCall_next[name] = currCall
 				profilerStartFunc = currCall.profiler.reset
