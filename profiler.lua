@@ -5,6 +5,7 @@ local string_format = string.format
 local string_len = string.len
 local string_sub = string.sub
 local string_gsub = string.gsub
+local debug_getinfo = debug.getinfo
 
 
 --	Call
@@ -65,7 +66,7 @@ function Profiler.Start(excludeCalledMs)
 	local stack_count = 0
 
 	debug.sethook(function(type)
-		local info = debug.getinfo(2)
+		local info = debug_getinfo(2)
 
 		if type == "call" then
 			local prevCall = stack[stack_count]
@@ -88,7 +89,7 @@ function Profiler.Start(excludeCalledMs)
 				prevCall_next = { }
 				prevCall.next = prevCall_next
 			end
-			
+
 			local currCall = prevCall_next[name]
 			local profilerStartFunc
 			if currCall == nil then
@@ -115,7 +116,7 @@ function Profiler.Start(excludeCalledMs)
 				stack[stack_count].profiler.stop()
 				stack[stack_count] = nil
 				stack_count = stack_count - 1
-				
+
 				if excludeCalledMs then
 					stack[stack_count].profiler.restart()
 				end
